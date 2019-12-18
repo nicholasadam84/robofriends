@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import Hello from './Hello';
+import App from './App';
+//import Card from './Card';
+//import CardList from './CardList';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
+//import { robots } from './robots'; //must use destructuring syntax when "export" is used instead of "export default" because more than one thing can be exported.
 
 //ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Hello greeting={`Hello React Dude`} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
