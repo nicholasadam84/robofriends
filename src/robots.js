@@ -31,8 +31,14 @@ export const robots = [
     },
     {
         id: 6,
-        name: 'Amanda Rohan',
+        name: 'Amanda Walls',
         username: 'Sis',
         email: 'luckycharms@hotmail.com',
+    },
+    {
+        id: 7,
+        name: 'Frank Walls',
+        username: 'Frank',
+        email: 'frank@hotmail.com',
     },
 ];
