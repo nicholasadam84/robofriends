@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 import { robots } from './robots';
+import './App.css'
 
 
 //Props - things that come out of State.
@@ -47,7 +48,7 @@ class App extends Component {
         })
         return (
             <div className='tc'>
-                <h1>Robofriends</h1>
+                <h1 className='f1'>Robofriends!</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
                 <CardList robots={filteredRobots} />
             </div>
