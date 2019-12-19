@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 //import { robots } from './robots';
+import Scroll from './Scroll';
 import './App.css'
-
 
 //***Props and State
 //Props - things that come out of State.
@@ -40,12 +40,10 @@ componentDidMount() {
         .then(users => this.setState({ robots: users }));
 }
 
-
 //We manage the state within App.js. The App component is the only thing that can change the state.     
 //However we can pass down functions as props too. We pass onSearchChange() to the SearchBox component.
 //Every time there is a change of input in the search box, SearchBox executes onSearchChange via the searchChange prop.
 //When onSearchChange() runs, note the setState() syntax used to update the searfield in this.state for the App above to whatever is typed.
-
 
     onSearchChange = (event) => {
         this.setState( { searchfield: event.target.value } )
@@ -66,7 +64,9 @@ componentDidMount() {
                 <div className='tc'>
                     <h1 className='f1'>Robofriends!</h1>
                     <SearchBox searchChange={this.onSearchChange}/>
-                    <CardList robots={filteredRobots} />
+                    <Scroll>
+                        <CardList robots={filteredRobots} />
+                    </Scroll>
                 </div>
             );
         }
