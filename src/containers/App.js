@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
 //import { robots } from './robots';
-import Scroll from './Scroll';
+import Scroll from '../components/Scroll';
 import './App.css'
 
 //***Props and State
@@ -54,10 +54,12 @@ componentDidMount() {
 //Then rather than passing the current state of robots to CardList, we pass the filteredRobots instead to keep the correct robots visible as we type.
 //Technically having robots in state isn't needed since our robots[] is hard-coded but normally we'll be getting this info externally, like new user signups, where tracking state will be required. Good practice.
     render() {
-        const filteredRobots = this.state.robots.filter(robot => {
-            return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());       
+        const { robots, searchfield } = this.state;
+        const filteredRobots = robots.filter(robot => {
+            return robot.name.toLowerCase().includes(searchfield.toLowerCase());       
         })
-        if (this.state.robots.length === 0) {
+        //if (robots.length === 0) {
+          if (!robots.length) {
             return <h1>Loading...</h1>
         } else {
             return (
