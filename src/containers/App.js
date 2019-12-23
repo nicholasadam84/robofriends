@@ -42,7 +42,7 @@ componentDidMount() {
 
 //We manage the state within App.js. The App component is the only thing that can change the state.     
 //However we can pass down functions as props too. We pass onSearchChange() to the SearchBox component.
-//Every time there is a change of input in the search box, SearchBox executes onSearchChange via the searchChange prop.
+//The SearchBox component is configured such that every time there is a change of input in the search box, onSearchChange is executed via the searchChange prop that was passed in.
 //When onSearchChange() runs, note the setState() syntax used to update the searfield in this.state for the App above to whatever is typed.
 
     onSearchChange = (event) => {
