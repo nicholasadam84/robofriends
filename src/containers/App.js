@@ -3,6 +3,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 //import { robots } from './robots';
 import Scroll from '../components/Scroll';
+import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css'
 
 //***Props and State
@@ -37,7 +38,7 @@ class App extends Component {
 componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
-        .then(users => this.setState({ robots: users }));
+        .then(users => {this.setState({ robots: users })});
 }
 
 //We manage the state within App.js. The App component is the only thing that can change the state.     
@@ -67,7 +68,9 @@ componentDidMount() {
                     <h1 className='f1'>Robofriends!</h1>
                     <SearchBox searchChange={this.onSearchChange}/>
                     <Scroll>
-                        <CardList robots={filteredRobots} />
+                        <ErrorBoundary>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundary>
                     </Scroll>
                 </div>
             );
